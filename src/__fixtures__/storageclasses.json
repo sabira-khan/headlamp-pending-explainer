@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "apiVersion": "storage.k8s.io/v1",
+      "kind": "StorageClass",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:38:05Z",
+        "name": "standard",
+        "resourceVersion": "314",
+        "uid": "3421db53-6b48-42a1-8a6e-63bcc41c2de6"
+      },
+      "provisioner": "rancher.io/local-path",
+      "reclaimPolicy": "Delete",
+      "volumeBindingMode": "WaitForFirstConsumer"
+    }
+  ]
+}

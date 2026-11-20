@@ -1,0 +1,442 @@
+{
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:38:00Z",
+        "labels": {
+          "beta.kubernetes.io/arch": "arm64",
+          "beta.kubernetes.io/os": "linux",
+          "kubernetes.io/arch": "arm64",
+          "kubernetes.io/hostname": "pending-lab-control-plane",
+          "kubernetes.io/os": "linux",
+          "node-role.kubernetes.io/control-plane": "",
+          "node.kubernetes.io/exclude-from-external-load-balancers": ""
+        },
+        "name": "pending-lab-control-plane",
+        "resourceVersion": "1567",
+        "uid": "7f3ffe10-0278-4247-9a8c-a2df7e2d4a5b"
+      },
+      "spec": {
+        "podCIDR": "10.244.0.0/24",
+        "podCIDRs": ["10.244.0.0/24"],
+        "providerID": "kind://docker/pending-lab/pending-lab-control-plane",
+        "taints": [
+          {
+            "effect": "NoSchedule",
+            "key": "node-role.kubernetes.io/control-plane"
+          }
+        ]
+      },
+      "status": {
+        "addresses": [
+          {
+            "address": "172.20.0.3",
+            "type": "InternalIP"
+          },
+          {
+            "address": "pending-lab-control-plane",
+            "type": "Hostname"
+          }
+        ],
+        "allocatable": {
+          "cpu": "5",
+          "ephemeral-storage": "62671097856",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "hugepages-32Mi": "0",
+          "hugepages-64Ki": "0",
+          "memory": "8038212Ki",
+          "pods": "110"
+        },
+        "capacity": {
+          "cpu": "5",
+          "ephemeral-storage": "62671097856",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "hugepages-32Mi": "0",
+          "hugepages-64Ki": "0",
+          "memory": "8038212Ki",
+          "pods": "110"
+        },
+        "conditions": [
+          {
+            "lastHeartbeatTime": "2026-11-20T10:46:32Z",
+            "lastTransitionTime": "2026-11-20T10:37:59Z",
+            "message": "kubelet has sufficient memory available",
+            "reason": "KubeletHasSufficientMemory",
+            "status": "False",
+            "type": "MemoryPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:46:32Z",
+            "lastTransitionTime": "2026-11-20T10:37:59Z",
+            "message": "kubelet has no disk pressure",
+            "reason": "KubeletHasNoDiskPressure",
+            "status": "False",
+            "type": "DiskPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:46:32Z",
+            "lastTransitionTime": "2026-11-20T10:37:59Z",
+            "message": "kubelet has sufficient PID available",
+            "reason": "KubeletHasSufficientPID",
+            "status": "False",
+            "type": "PIDPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:46:32Z",
+            "lastTransitionTime": "2026-11-20T10:38:20Z",
+            "message": "kubelet is posting ready status",
+            "reason": "KubeletReady",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "daemonEndpoints": {
+          "kubeletEndpoint": {
+            "Port": 10250
+          }
+        },
+        "declaredFeatures": [
+          "ExtendWebSocketsToKubelet",
+          "InPlacePodLevelResourcesVerticalScaling",
+          "InPlacePodVerticalScalingInitContainers",
+          "RestartAllContainersOnContainerExits"
+        ],
+        "features": {
+          "supplementalGroupsPolicy": true
+        },
+        "nodeInfo": {
+          "architecture": "arm64",
+          "bootID": "193abd38-a6b3-4aa2-a1ad-649e64abb9b1",
+          "containerRuntimeVersion": "containerd://2.3.4",
+          "kernelVersion": "6.3.13-linuxkit",
+          "kubeProxyVersion": "",
+          "kubeletVersion": "v1.37.0",
+          "machineID": "2be940c65f434fd9bd78c73c054840ec",
+          "operatingSystem": "linux",
+          "osImage": "Debian GNU/Linux 13 (trixie)",
+          "runningInUserNamespace": false,
+          "swap": {
+            "capacity": 1073737728
+          },
+          "systemUUID": "2be940c65f434fd9bd78c73c054840ec"
+        },
+        "runtimeHandlers": [
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": ""
+          },
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": "runc"
+          },
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": "test-handler"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:38:11Z",
+        "labels": {
+          "beta.kubernetes.io/arch": "arm64",
+          "beta.kubernetes.io/os": "linux",
+          "kubernetes.io/arch": "arm64",
+          "kubernetes.io/hostname": "pending-lab-worker",
+          "kubernetes.io/os": "linux"
+        },
+        "name": "pending-lab-worker",
+        "resourceVersion": "1479",
+        "uid": "a3911b58-2869-412f-ba39-a8102fb728d3"
+      },
+      "spec": {
+        "podCIDR": "10.244.1.0/24",
+        "podCIDRs": ["10.244.1.0/24"],
+        "providerID": "kind://docker/pending-lab/pending-lab-worker"
+      },
+      "status": {
+        "addresses": [
+          {
+            "address": "172.20.0.4",
+            "type": "InternalIP"
+          },
+          {
+            "address": "pending-lab-worker",
+            "type": "Hostname"
+          }
+        ],
+        "allocatable": {
+          "cpu": "5",
+          "ephemeral-storage": "62671097856",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "hugepages-32Mi": "0",
+          "hugepages-64Ki": "0",
+          "memory": "8038212Ki",
+          "pods": "110"
+        },
+        "capacity": {
+          "cpu": "5",
+          "ephemeral-storage": "62671097856",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "hugepages-32Mi": "0",
+          "hugepages-64Ki": "0",
+          "memory": "8038212Ki",
+          "pods": "110"
+        },
+        "conditions": [
+          {
+            "lastHeartbeatTime": "2026-11-20T10:45:39Z",
+            "lastTransitionTime": "2026-11-20T10:38:11Z",
+            "message": "kubelet has sufficient memory available",
+            "reason": "KubeletHasSufficientMemory",
+            "status": "False",
+            "type": "MemoryPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:45:39Z",
+            "lastTransitionTime": "2026-11-20T10:38:11Z",
+            "message": "kubelet has no disk pressure",
+            "reason": "KubeletHasNoDiskPressure",
+            "status": "False",
+            "type": "DiskPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:45:39Z",
+            "lastTransitionTime": "2026-11-20T10:38:11Z",
+            "message": "kubelet has sufficient PID available",
+            "reason": "KubeletHasSufficientPID",
+            "status": "False",
+            "type": "PIDPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:45:39Z",
+            "lastTransitionTime": "2026-11-20T10:38:24Z",
+            "message": "kubelet is posting ready status",
+            "reason": "KubeletReady",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "daemonEndpoints": {
+          "kubeletEndpoint": {
+            "Port": 10250
+          }
+        },
+        "declaredFeatures": [
+          "ExtendWebSocketsToKubelet",
+          "InPlacePodLevelResourcesVerticalScaling",
+          "InPlacePodVerticalScalingInitContainers",
+          "RestartAllContainersOnContainerExits"
+        ],
+        "features": {
+          "supplementalGroupsPolicy": true
+        },
+        "nodeInfo": {
+          "architecture": "arm64",
+          "bootID": "193abd38-a6b3-4aa2-a1ad-649e64abb9b1",
+          "containerRuntimeVersion": "containerd://2.3.4",
+          "kernelVersion": "6.3.13-linuxkit",
+          "kubeProxyVersion": "",
+          "kubeletVersion": "v1.37.0",
+          "machineID": "4e75962a4a2c4773847538035731976f",
+          "operatingSystem": "linux",
+          "osImage": "Debian GNU/Linux 13 (trixie)",
+          "runningInUserNamespace": false,
+          "swap": {
+            "capacity": 1073737728
+          },
+          "systemUUID": "4e75962a4a2c4773847538035731976f"
+        },
+        "runtimeHandlers": [
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": ""
+          },
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": "runc"
+          },
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": "test-handler"
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Node",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:38:11Z",
+        "labels": {
+          "beta.kubernetes.io/arch": "arm64",
+          "beta.kubernetes.io/os": "linux",
+          "kubernetes.io/arch": "arm64",
+          "kubernetes.io/hostname": "pending-lab-worker2",
+          "kubernetes.io/os": "linux"
+        },
+        "name": "pending-lab-worker2",
+        "resourceVersion": "1304",
+        "uid": "27e5df6b-295e-4c1c-8a15-d88ab0189039"
+      },
+      "spec": {
+        "podCIDR": "10.244.2.0/24",
+        "podCIDRs": ["10.244.2.0/24"],
+        "providerID": "kind://docker/pending-lab/pending-lab-worker2",
+        "taints": [
+          {
+            "effect": "NoSchedule",
+            "key": "dedicated",
+            "value": "gpu"
+          }
+        ]
+      },
+      "status": {
+        "addresses": [
+          {
+            "address": "172.20.0.2",
+            "type": "InternalIP"
+          },
+          {
+            "address": "pending-lab-worker2",
+            "type": "Hostname"
+          }
+        ],
+        "allocatable": {
+          "cpu": "5",
+          "ephemeral-storage": "62671097856",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "hugepages-32Mi": "0",
+          "hugepages-64Ki": "0",
+          "memory": "8038212Ki",
+          "pods": "110"
+        },
+        "capacity": {
+          "cpu": "5",
+          "ephemeral-storage": "62671097856",
+          "hugepages-1Gi": "0",
+          "hugepages-2Mi": "0",
+          "hugepages-32Mi": "0",
+          "hugepages-64Ki": "0",
+          "memory": "8038212Ki",
+          "pods": "110"
+        },
+        "conditions": [
+          {
+            "lastHeartbeatTime": "2026-11-20T10:43:58Z",
+            "lastTransitionTime": "2026-11-20T10:38:11Z",
+            "message": "kubelet has sufficient memory available",
+            "reason": "KubeletHasSufficientMemory",
+            "status": "False",
+            "type": "MemoryPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:43:58Z",
+            "lastTransitionTime": "2026-11-20T10:38:11Z",
+            "message": "kubelet has no disk pressure",
+            "reason": "KubeletHasNoDiskPressure",
+            "status": "False",
+            "type": "DiskPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:43:58Z",
+            "lastTransitionTime": "2026-11-20T10:38:11Z",
+            "message": "kubelet has sufficient PID available",
+            "reason": "KubeletHasSufficientPID",
+            "status": "False",
+            "type": "PIDPressure"
+          },
+          {
+            "lastHeartbeatTime": "2026-11-20T10:43:58Z",
+            "lastTransitionTime": "2026-11-20T10:38:24Z",
+            "message": "kubelet is posting ready status",
+            "reason": "KubeletReady",
+            "status": "True",
+            "type": "Ready"
+          }
+        ],
+        "daemonEndpoints": {
+          "kubeletEndpoint": {
+            "Port": 10250
+          }
+        },
+        "declaredFeatures": [
+          "ExtendWebSocketsToKubelet",
+          "InPlacePodLevelResourcesVerticalScaling",
+          "InPlacePodVerticalScalingInitContainers",
+          "RestartAllContainersOnContainerExits"
+        ],
+        "features": {
+          "supplementalGroupsPolicy": true
+        },
+        "nodeInfo": {
+          "architecture": "arm64",
+          "bootID": "193abd38-a6b3-4aa2-a1ad-649e64abb9b1",
+          "containerRuntimeVersion": "containerd://2.3.4",
+          "kernelVersion": "6.3.13-linuxkit",
+          "kubeProxyVersion": "",
+          "kubeletVersion": "v1.37.0",
+          "machineID": "c8540e066c4b471d953cd949ffb9d711",
+          "operatingSystem": "linux",
+          "osImage": "Debian GNU/Linux 13 (trixie)",
+          "runningInUserNamespace": false,
+          "swap": {
+            "capacity": 1073737728
+          },
+          "systemUUID": "c8540e066c4b471d953cd949ffb9d711"
+        },
+        "runtimeHandlers": [
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": ""
+          },
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": "runc"
+          },
+          {
+            "features": {
+              "recursiveReadOnlyMounts": true,
+              "userNamespaces": true
+            },
+            "name": "test-handler"
+          }
+        ]
+      }
+    }
+  ]
+}

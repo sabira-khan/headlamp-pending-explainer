@@ -1,0 +1,345 @@
+{
+  "items": [
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:46Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "after-cordon",
+        "namespace": "lab",
+        "resourceVersion": "841",
+        "uid": "d8bed10d-68f3-4fdc-8de9-971909620e9e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:39:46Z",
+      "message": "0/3 nodes are available: 1 node(s) were unschedulable, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:46Z",
+        "name": "after-cordon.18e9baaeba0740ff",
+        "namespace": "lab",
+        "resourceVersion": "842",
+        "uid": "74f8a37e-11a0-40d0-a6f5-fb0594040ff1"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 1,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:40:06Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "after-cordon",
+        "namespace": "lab",
+        "resourceVersion": "843",
+        "uid": "d8bed10d-68f3-4fdc-8de9-971909620e9e"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:40:06Z",
+      "message": "0/3 nodes are available: 3 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:40:06Z",
+        "name": "after-cordon.18e9bab385754f7f",
+        "namespace": "lab",
+        "resourceVersion": "900",
+        "uid": "b95f5cb0-4dbd-48f6-a7ea-203fe902e8df"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "gpu-node-only",
+        "namespace": "lab",
+        "resourceVersion": "680",
+        "uid": "39395d8d-6888-4a4d-9a9f-ebdb5d51a8af"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 node(s) didn't match Pod's node affinity/selector, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "gpu-node-only.18e9baa4b71cd30a",
+        "namespace": "lab",
+        "resourceVersion": "1468",
+        "uid": "ee1cf587-4a54-42f0-b9d5-e369cf76b3b9"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "host-port-75f6988555-7b69d",
+        "namespace": "lab",
+        "resourceVersion": "705",
+        "uid": "7d6faf33-ff6c-4b84-bb77-cd5126d0ab66"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 node(s) didn't have free ports for the requested pod ports, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 1 No preemption victims found for incoming pod, 2 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "host-port-75f6988555-7b69d.18e9baa4be25c603",
+        "namespace": "lab",
+        "resourceVersion": "1472",
+        "uid": "282c322a-113d-4805-b37b-fedd64a0c67c"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "mixed-reasons",
+        "namespace": "lab",
+        "resourceVersion": "703",
+        "uid": "5e1818b4-ba85-41c2-a64b-59eb65247c92"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 node(s) had untolerated taint(s), 2 Insufficient cpu. preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "mixed-reasons.18e9baa4bdd747c6",
+        "namespace": "lab",
+        "resourceVersion": "1471",
+        "uid": "d61fe215-ce53-4bd6-94ef-7952ac689ee0"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "no-matching-node",
+        "namespace": "lab",
+        "resourceVersion": "677",
+        "uid": "2ee7e823-e95b-453f-b1e1-c822b2e85a77"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 node(s) didn't match Pod's node affinity/selector, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "no-matching-node.18e9baa4b61763f5",
+        "namespace": "lab",
+        "resourceVersion": "1467",
+        "uid": "895a1dd5-d5df-44b9-8a1b-e9844fe56703"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "spread-out-86646b4667-vdp6z",
+        "namespace": "lab",
+        "resourceVersion": "701",
+        "uid": "8fdf7a86-d38e-4ae1-b781-de4b6d810b28"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 node(s) didn't match pod anti-affinity rules, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 1 No preemption victims found for incoming pod, 2 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "spread-out-86646b4667-vdp6z.18e9baa4bd22b124",
+        "namespace": "lab",
+        "resourceVersion": "1470",
+        "uid": "d0adaade-a427-45e1-95a5-9890d58eaa4d"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "spread-out-86646b4667-wbfpt",
+        "namespace": "lab",
+        "resourceVersion": "700",
+        "uid": "b6412d0a-085c-46f8-84d0-f019ebc5afba"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 node(s) didn't match pod anti-affinity rules, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 1 No preemption victims found for incoming pod, 2 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "spread-out-86646b4667-wbfpt.18e9baa4bc3a0cfd",
+        "namespace": "lab",
+        "resourceVersion": "1469",
+        "uid": "28355024-7220-4ce3-a224-8c8297f4e7a2"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "too-much-cpu",
+        "namespace": "lab",
+        "resourceVersion": "671",
+        "uid": "a2e282dd-3313-4d58-82af-23ae54f2050a"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 Insufficient cpu, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "too-much-cpu.18e9baa4b45c4e1b",
+        "namespace": "lab",
+        "resourceVersion": "1465",
+        "uid": "04ce9a44-e32d-4ea4-a2ae-dac530a44f18"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 3,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "too-much-memory",
+        "namespace": "lab",
+        "resourceVersion": "673",
+        "uid": "6c4d8f6b-837b-4845-9cff-9d62c44996b0"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:45:34Z",
+      "message": "0/3 nodes are available: 1 Insufficient memory, 2 node(s) had untolerated taint(s). preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "too-much-memory.18e9baa4b50c282c",
+        "namespace": "lab",
+        "resourceVersion": "1466",
+        "uid": "4b4ee421-eff0-44aa-b335-2528e949a799"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    },
+    {
+      "apiVersion": "v1",
+      "count": 2,
+      "eventTime": null,
+      "firstTimestamp": "2026-11-20T10:39:03Z",
+      "involvedObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "name": "waits-for-volume",
+        "namespace": "lab",
+        "resourceVersion": "684",
+        "uid": "94aa62af-19b6-4e15-a274-3189d309a8de"
+      },
+      "kind": "Event",
+      "lastTimestamp": "2026-11-20T10:44:04Z",
+      "message": "0/3 nodes are available: pod has unbound immediate PersistentVolumeClaims. not found",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "name": "waits-for-volume.18e9baa4b9751ac1",
+        "namespace": "lab",
+        "resourceVersion": "1317",
+        "uid": "f5c45fe0-2594-4a63-83ca-7bdb8eedb8fa"
+      },
+      "reason": "FailedScheduling",
+      "reportingComponent": "default-scheduler",
+      "reportingInstance": "",
+      "source": {
+        "component": "default-scheduler"
+      },
+      "type": "Warning"
+    }
+  ]
+}

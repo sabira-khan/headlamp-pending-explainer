@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "creationTimestamp": "2026-11-20T10:39:03Z",
+        "finalizers": ["kubernetes.io/pvc-protection"],
+        "name": "data",
+        "namespace": "lab",
+        "resourceVersion": "683",
+        "uid": "55d1ee19-659b-4114-9e75-53ebe38deb67"
+      },
+      "spec": {
+        "accessModes": ["ReadWriteOnce"],
+        "resources": {
+          "requests": {
+            "storage": "1Gi"
+          }
+        },
+        "storageClassName": "does-not-exist",
+        "volumeMode": "Filesystem"
+      },
+      "status": {
+        "phase": "Pending"
+      }
+    }
+  ]
+}
