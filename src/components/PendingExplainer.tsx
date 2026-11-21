@@ -53,6 +53,12 @@ export function ExplanationView({ explanation }: { explanation: Explanation }) {
           Scheduler: {explanation.scheduler.raw}
         </Typography>
       )}
+      {explanation.gates.length > 0 && (
+        <Alert severity="info" sx={{ mb: 2 }}>
+          This pod is held by scheduling gates ({explanation.gates.join(', ')}). The scheduler skips
+          it until every gate is removed, so its nodes are not checked yet.
+        </Alert>
+      )}
       {everyNodeFits && (
         <Alert severity="info" sx={{ mb: 2 }}>
           Every node looks able to run this pod now. The scheduler retries pending pods, so it

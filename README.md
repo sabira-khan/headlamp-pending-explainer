@@ -31,6 +31,7 @@ The checks follow the scheduler's default filter plugins, in the same order:
 
 | Scheduler plugin | What the plugin reports |
 |---|---|
+| SchedulingGates | Pods held by `spec.schedulingGates`, with the gate names. The scheduler skips these pods until the gates are removed, so nodes are not checked |
 | NodeUnschedulable | Cordoned nodes, with the `kubectl uncordon` command |
 | TaintToleration | The exact taint on each node, and the toleration that would match it. The control-plane taint is flagged as one to leave alone |
 | NodeAffinity | Which `nodeSelector` labels a node is missing or has with another value, and required node affinity expressions (`In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, `Lt`, `matchFields`) |

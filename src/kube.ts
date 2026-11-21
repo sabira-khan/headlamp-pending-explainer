@@ -56,6 +56,7 @@ export interface Pod {
     containers: Container[];
     initContainers?: Container[];
     overhead?: Record<string, string>;
+    schedulingGates?: { name: string }[];
     affinity?: {
       nodeAffinity?: {
         requiredDuringSchedulingIgnoredDuringExecution?: { nodeSelectorTerms: NodeSelectorTerm[] };

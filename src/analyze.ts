@@ -43,6 +43,7 @@ export interface Explanation {
   fixes: Fix[];
   scheduler: SchedulerMessage | null;
   agreement: { checked: boolean; matches: boolean; differences: string[] };
+  gates: string[];
 }
 
 const ORDER: ReasonKind[] = [
@@ -639,6 +640,8 @@ export function summarize(
   explanation: Explanation,
   state: ClusterState
 ): { main: string; closest: NodeVerdict | null } {
+  if (explanation.gates.length)
+    return { main: `Waiting for scheduling gates: ${explanation.gates.join(', ')}`, closest: null };
   if (explanation.podLevel.length) return { main: explanation.podLevel[0].summary, closest: null };
   if (explanation.nodes.length && explanation.nodes.every(n => n.fits))
     return { main: 'Every node fits now', closest: null };
@@ -658,6 +661,8 @@ export function explainPod(pod: Pod, state: ClusterState): Explanation {
   const scheduled = Boolean(pod.spec.nodeName);
   const message = latestSchedulingMessage(pod, state.events);
   const scheduler = message ? parseSchedulerMessage(message) : null;
+  const gates = (pod.spec.schedulingGates ?? []).map(g => g.name);
+  const unchecked = { checked: false, matches: false, differences: [] };
   if (scheduled)
     return {
       scheduled,
@@ -665,7 +670,25 @@ export function explainPod(pod: Pod, state: ClusterState): Explanation {
       nodes: [],
       fixes: [],
       scheduler,
-      agreement: { checked: false, matches: false, differences: [] },
+      agreement: unchecked,
+      gates: [],
+    };
+  if (gates.length)
+    return {
+      scheduled,
+      podLevel: [],
+      nodes: [],
+      fixes: [
+        {
+          title: `Remove the scheduling gate${gates.length === 1 ? '' : 's'} when the pod is ready`,
+          detail:
+            'Gates are usually removed by the controller that added them, such as a quota or provisioning system. Check that controller before removing a gate by hand.',
+          snippet: `kubectl patch pod ${pod.metadata.name} -n ${pod.metadata.namespace} --type=json -p '[{"op":"remove","path":"/spec/schedulingGates"}]'`,
+        },
+      ],
+      scheduler,
+      agreement: unchecked,
+      gates,
     };
   const requests = podRequests(pod);
   const podLevel = volumeBlockers(pod, state);
@@ -673,9 +696,7 @@ export function explainPod(pod: Pod, state: ClusterState): Explanation {
     const blockers = checkNode(pod, node, state, requests);
     return { node: node.metadata.name, fits: blockers.length === 0, blockers };
   });
-  const agreement = scheduler
-    ? compare(scheduler, nodes, podLevel)
-    : { checked: false, matches: false, differences: [] };
+  const agreement = scheduler ? compare(scheduler, nodes, podLevel) : unchecked;
   if (scheduler) {
     const modelled = new Set(
       nodes.flatMap(n => n.blockers.map(b => b.kind)).concat(podLevel.map(b => b.kind))
@@ -702,5 +723,6 @@ export function explainPod(pod: Pod, state: ClusterState): Explanation {
     fixes: fixes(pod, nodes, podLevel, state, requests),
     scheduler,
     agreement,
+    gates,
   };
 }

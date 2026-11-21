@@ -221,6 +221,52 @@ describe('edge cases', () => {
   });
 });
 
+describe('scheduling gates', () => {
+  const gated: Pod = {
+    metadata: { name: 'gated', namespace: 'pr-review', uid: 'gated' },
+    spec: {
+      containers: [{ name: 'app' }],
+      schedulingGates: [{ name: 'example.com/quota-check' }],
+    },
+    status: {
+      phase: 'Pending',
+      conditions: [
+        {
+          type: 'PodScheduled',
+          status: 'False',
+          reason: 'SchedulingGated',
+          message: 'Scheduling is blocked due to non-empty scheduling gates',
+        },
+      ],
+    },
+  };
+
+  it('explains the gate instead of checking nodes or disagreeing with the scheduler', () => {
+    const e = explainPod(gated, state);
+    expect(e.gates).toEqual(['example.com/quota-check']);
+    expect(e.nodes).toEqual([]);
+    expect(e.podLevel).toEqual([]);
+    expect(e.agreement.checked).toBe(false);
+    expect(e.fixes).toHaveLength(1);
+    expect(e.fixes[0].snippet).toBe(
+      `kubectl patch pod gated -n pr-review --type=json -p '[{"op":"remove","path":"/spec/schedulingGates"}]'`
+    );
+  });
+
+  it('names the gates in the pending pods list', () => {
+    expect(summarize(explainPod(gated, state), state)).toEqual({
+      main: 'Waiting for scheduling gates: example.com/quota-check',
+      closest: null,
+    });
+  });
+
+  it('checks nodes as usual once the gates are removed', () => {
+    const e = explainPod({ ...gated, spec: { ...gated.spec, schedulingGates: [] } }, state);
+    expect(e.gates).toEqual([]);
+    expect(e.nodes.length).toBe(state.nodes.length);
+  });
+});
+
 describe('summaries for the pending pods list', () => {
   it('picks a worker over a control-plane node and names its real blocker', () => {
     const cases = Object.fromEntries(
